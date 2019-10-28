@@ -24,7 +24,7 @@ The API has only one RESTful endpoint for sending an emails (/email/send). The e
 | Field name   | Type    | Optional|
 | ------------ |:-------:|:-------:|
 | from         | String  |    N    |
-| to           | List    |    N    |
+| toRecipients           | List    |    N    |
 | cc           | List    |    Y    |
 | bcc          | List    |    Y    |
 | subject      | String  |    N    |
@@ -36,9 +36,10 @@ A sample JSON request is as follows:
 {
 	"from": "dontreploy@gmail.com",
     "toRecipients": ["singh523@gmail.com"],
-	"body" : "body of email",
-	"subject": "Subject of email",
-	"test":"asdf"
+    "ccRecipients": ["singh523@gmail.com"],
+    "bccRecipients": ["singh523@gmail.com"],
+	"body" : "Body of the email",
+	"subject": "Subject of the email",
 }
 ```
 
