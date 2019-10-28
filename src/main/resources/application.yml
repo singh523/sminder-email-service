@@ -1,0 +1,31 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  metrics:
+    enabled: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12000
+
+email:
+  sendgrid-service:
+    url: https://api.sendgrid.com
+    path: /v3/mail/send
+    token: Bearer <TOKEN>
+  mailgun-service:
+    url: https://api.mailgun.net
+    path: /v3/<mailgun-domain>/messages
+    username: api
+    password: <PASSWORD>
+
+server:
+  port: 5000
