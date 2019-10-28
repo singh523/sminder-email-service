@@ -13,6 +13,10 @@ Micro service has been deployed to AWS Elastic Beanstalk and accessible with the
 
 http://EmailService-prd.59mw7z5pp9.us-east-2.elasticbeanstalk.com/email/send
 
+Please ensure you are passing content type as application/json
+
+Content-Type - application/json
+
 #### Request format:
 The API has only one RESTful endpoint for sending an emails (/email/send). The endpoint accepts only POST method with content-type as JSON (application/json). The request has the following fields:
 
