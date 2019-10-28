@@ -25,8 +25,8 @@ The API has only one RESTful endpoint for sending an emails (/email/send). The e
 | ------------ |:-------:|:-------:|
 | from         | String  |    N    |
 | toRecipients           | List    |    N    |
-| cc           | List    |    Y    |
-| bcc          | List    |    Y    |
+| ccRecipients           | List    |    Y    |
+| bccRecipients          | List    |    Y    |
 | subject      | String  |    N    |
 | body         | String  |    N    |
 
