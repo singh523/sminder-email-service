@@ -1,17 +1,13 @@
 # sminder-email-service
 
 ## Overview
-The objective of this service to create a RESTful service that accepts the necessary information and sends an emails with the Mailgun or Sendgrid api providers. The service implementation is an abstraction between two different email service providers. If one service goes down, the backend service will failover to a other mail service provider without affecting the customers. This solution will cater for multiple email recipients, CCs and BCCs.
+The objective of this service to create a Springboot Micro service that accepts the necessary information and sends an emails with the Mailgun or Sendgrid api providers. The service implementation is an abstraction between two different email service providers. If one service goes down, the backend service will failover to a other mail service provider without affecting the customers. This solution will cater for multiple email recipients, CCs and BCCs.
 
 ## Implementation
 
-Sminder email service has been implemented as a Micro service with Spring boot & java8. Have used spring feign to call mail service providers.
+Email service has been implemented as a Micro service with Spring boot & java8. Have used spring feign to call mail service providers.
 
 ## How to call API
-
-Micro service has been deployed to AWS Elastic Beanstalk and accessible with the below URL
-
-http://EmailService-prd.59mw7z5pp9.us-east-2.elasticbeanstalk.com/email/send
 
 Please ensure you are passing content type as application/json
 
@@ -24,9 +20,9 @@ The API has only one RESTful endpoint for sending an emails (/email/send). The e
 | Field name   | Type    | Optional|
 | ------------ |:-------:|:-------:|
 | from         | String  |    N    |
-| toRecipients           | List    |    N    |
-| ccRecipients           | List    |    Y    |
-| bccRecipients          | List    |    Y    |
+| toRecipients | List    |    N    |
+| ccRecipients | List    |    Y    |
+| bccRecipients| List    |    Y    |
 | subject      | String  |    N    |
 | body         | String  |    N    |
 
@@ -35,11 +31,11 @@ A sample JSON request is as follows:
 ```json
 {
 	"from": "dontreploy@gmail.com",
-    "toRecipients": ["singh523@gmail.com"],
-    "ccRecipients": ["singh523@gmail.com"],
-    "bccRecipients": ["singh523@gmail.com"],
+    "toRecipients": ["test2@gmail.com"],
+    "ccRecipients": ["test3@gmail.com"],
+    "bccRecipients": ["test4@gmail.com"],
 	"body" : "Body of the email",
-	"subject": "Subject of the email",
+	"subject": "Subject of the email"
 }
 ```
 
@@ -70,7 +66,7 @@ When Fallback service fails
     "status": 500,
     "message": "INTERNAL_SERVER_ERROR",
     "details": [
-        "SendGridServiceClient#sendEmail(SendGridRequest) failed and fallback failed."
+        "Exception occurred in processing your request, please try again!"
     ]
 }
 ```
@@ -96,7 +92,7 @@ When Fallback service fails
                     password: <password>
      
      3. Navigate to the project location and build the project
-        `cd sminder-email-service`
+        `cd springboot-email-service`
         `mvn clean install`
       4. Starting the application
         Assuming you are in the project root directory

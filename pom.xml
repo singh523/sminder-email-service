@@ -10,10 +10,10 @@
     <relativePath/>
   </parent>
   <groupId>com.sminder.email</groupId>
-  <artifactId>sminder-email-service</artifactId>
+  <artifactId>springboot-email-service</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>sminder-email-service</name>
+  <name>springboot-email-service</name>
   <description>Spring Boot email services to send mail notifications</description>
 
   <properties>
